@@ -36,4 +36,5 @@ class FoodViewModel: ObservableObject {
             self.hasError = true
         }
     }
+    
 }

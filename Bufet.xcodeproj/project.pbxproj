@@ -20,6 +20,9 @@
 		E36ABB06275B95D500D490EF /* EnvironmentValues+ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36ABB05275B95D500D490EF /* EnvironmentValues+ImageCache.swift */; };
 		E36ABB08275B95E700D490EF /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36ABB07275B95E700D490EF /* ImageCache.swift */; };
 		E36ABB0A275B967A00D490EF /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36ABB09275B967A00D490EF /* ImageLoader.swift */; };
+		E36ABB10275CDA3100D490EF /* MailComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36ABB0F275CDA3000D490EF /* MailComposeViewController.swift */; };
+		E36ABB12275CF35300D490EF /* ARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36ABB11275CF35300D490EF /* ARViewContainer.swift */; };
+		E36ABB15275D07CE00D490EF /* FoodItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36ABB14275D07CE00D490EF /* FoodItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +40,9 @@
 		E36ABB05275B95D500D490EF /* EnvironmentValues+ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+ImageCache.swift"; sourceTree = "<group>"; };
 		E36ABB07275B95E700D490EF /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		E36ABB09275B967A00D490EF /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		E36ABB0F275CDA3000D490EF /* MailComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailComposeViewController.swift; sourceTree = "<group>"; };
+		E36ABB11275CF35300D490EF /* ARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewContainer.swift; sourceTree = "<group>"; };
+		E36ABB14275D07CE00D490EF /* FoodItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +75,7 @@
 		E36ABAE3275B6F5B00D490EF /* Bufet */ = {
 			isa = PBXGroup;
 			children = (
+				E36ABB0E275CDA1D00D490EF /* Util */,
 				E36ABB02275B956600D490EF /* AsyncImage */,
 				E36ABAFD275B7CD300D490EF /* View */,
 				E36ABAFA275B796900D490EF /* ViewModel */,
@@ -118,7 +125,9 @@
 		E36ABAFD275B7CD300D490EF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E36ABB13275D07BC00D490EF /* Cell */,
 				E36ABAFE275B7CEC00D490EF /* FoodView.swift */,
+				E36ABB11275CF35300D490EF /* ARViewContainer.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -132,6 +141,22 @@
 				E36ABB09275B967A00D490EF /* ImageLoader.swift */,
 			);
 			path = AsyncImage;
+			sourceTree = "<group>";
+		};
+		E36ABB0E275CDA1D00D490EF /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				E36ABB0F275CDA3000D490EF /* MailComposeViewController.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		E36ABB13275D07BC00D490EF /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E36ABB14275D07CE00D490EF /* FoodItem.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,12 +229,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E36ABB15275D07CE00D490EF /* FoodItem.swift in Sources */,
 				E36ABB08275B95E700D490EF /* ImageCache.swift in Sources */,
 				E36ABAE7275B6F5B00D490EF /* ContentView.swift in Sources */,
 				E36ABAF6275B719900D490EF /* Food.swift in Sources */,
 				E36ABAFF275B7CEC00D490EF /* FoodView.swift in Sources */,
 				E36ABAFC275B797D00D490EF /* FoodViewModel.swift in Sources */,
 				E36ABB06275B95D500D490EF /* EnvironmentValues+ImageCache.swift in Sources */,
+				E36ABB12275CF35300D490EF /* ARViewContainer.swift in Sources */,
+				E36ABB10275CDA3100D490EF /* MailComposeViewController.swift in Sources */,
 				E36ABB04275B95A600D490EF /* AsyncImage.swift in Sources */,
 				E36ABAE5275B6F5B00D490EF /* AppDelegate.swift in Sources */,
 				E36ABAE9275B6F5B00D490EF /* Experience.rcproject in Sources */,
@@ -353,6 +381,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -384,6 +413,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
