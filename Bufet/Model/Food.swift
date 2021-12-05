@@ -24,6 +24,13 @@ struct Food: Codable, Identifiable {
     let image: String
     let details: String
     
+    init() {
+        self.id = 0
+        self.title = ""
+        self.image = ""
+        self.details = ""
+    }
+    
     init(from decoder: Decoder) throws {
         let rawResponse = try RawServerFoodResponse(from: decoder)
         id = rawResponse.id

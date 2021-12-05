@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E36ABAE5275B6F5B00D490EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36ABAE4275B6F5B00D490EF /* AppDelegate.swift */; };
-		E36ABAE7275B6F5B00D490EF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36ABAE6275B6F5B00D490EF /* ContentView.swift */; };
+		E36ABAE7275B6F5B00D490EF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36ABAE6275B6F5B00D490EF /* HomeView.swift */; };
 		E36ABAE9275B6F5B00D490EF /* Experience.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = E36ABAE8275B6F5B00D490EF /* Experience.rcproject */; };
 		E36ABAEB275B6F5D00D490EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E36ABAEA275B6F5D00D490EF /* Assets.xcassets */; };
 		E36ABAEE275B6F5D00D490EF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E36ABAED275B6F5D00D490EF /* Preview Assets.xcassets */; };
@@ -23,12 +23,13 @@
 		E36ABB10275CDA3100D490EF /* MailComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36ABB0F275CDA3000D490EF /* MailComposeViewController.swift */; };
 		E36ABB12275CF35300D490EF /* ARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36ABB11275CF35300D490EF /* ARViewContainer.swift */; };
 		E36ABB15275D07CE00D490EF /* FoodItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36ABB14275D07CE00D490EF /* FoodItem.swift */; };
+		E36ABB17275D3C9400D490EF /* SelectedFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36ABB16275D3C9400D490EF /* SelectedFood.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E36ABAE1275B6F5B00D490EF /* Bufet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bufet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E36ABAE4275B6F5B00D490EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E36ABAE6275B6F5B00D490EF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E36ABAE6275B6F5B00D490EF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		E36ABAE8275B6F5B00D490EF /* Experience.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = Experience.rcproject; sourceTree = "<group>"; };
 		E36ABAEA275B6F5D00D490EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E36ABAED275B6F5D00D490EF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -43,6 +44,7 @@
 		E36ABB0F275CDA3000D490EF /* MailComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailComposeViewController.swift; sourceTree = "<group>"; };
 		E36ABB11275CF35300D490EF /* ARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewContainer.swift; sourceTree = "<group>"; };
 		E36ABB14275D07CE00D490EF /* FoodItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItem.swift; sourceTree = "<group>"; };
+		E36ABB16275D3C9400D490EF /* SelectedFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedFood.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +84,6 @@
 				E36ABAF7275B76A300D490EF /* Service */,
 				E36ABAF4275B704100D490EF /* Model */,
 				E36ABAE4275B6F5B00D490EF /* AppDelegate.swift */,
-				E36ABAE6275B6F5B00D490EF /* ContentView.swift */,
 				E36ABAE8275B6F5B00D490EF /* Experience.rcproject */,
 				E36ABAEA275B6F5D00D490EF /* Assets.xcassets */,
 				E36ABAEC275B6F5D00D490EF /* Preview Content */,
@@ -102,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				E36ABAF5275B719900D490EF /* Food.swift */,
+				E36ABB16275D3C9400D490EF /* SelectedFood.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -126,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				E36ABB13275D07BC00D490EF /* Cell */,
+				E36ABAE6275B6F5B00D490EF /* HomeView.swift */,
 				E36ABAFE275B7CEC00D490EF /* FoodView.swift */,
 				E36ABB11275CF35300D490EF /* ARViewContainer.swift */,
 			);
@@ -231,12 +234,13 @@
 			files = (
 				E36ABB15275D07CE00D490EF /* FoodItem.swift in Sources */,
 				E36ABB08275B95E700D490EF /* ImageCache.swift in Sources */,
-				E36ABAE7275B6F5B00D490EF /* ContentView.swift in Sources */,
+				E36ABAE7275B6F5B00D490EF /* HomeView.swift in Sources */,
 				E36ABAF6275B719900D490EF /* Food.swift in Sources */,
 				E36ABAFF275B7CEC00D490EF /* FoodView.swift in Sources */,
 				E36ABAFC275B797D00D490EF /* FoodViewModel.swift in Sources */,
 				E36ABB06275B95D500D490EF /* EnvironmentValues+ImageCache.swift in Sources */,
 				E36ABB12275CF35300D490EF /* ARViewContainer.swift in Sources */,
+				E36ABB17275D3C9400D490EF /* SelectedFood.swift in Sources */,
 				E36ABB10275CDA3100D490EF /* MailComposeViewController.swift in Sources */,
 				E36ABB04275B95A600D490EF /* AsyncImage.swift in Sources */,
 				E36ABAE5275B6F5B00D490EF /* AppDelegate.swift in Sources */,

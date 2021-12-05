@@ -12,7 +12,8 @@ struct FoodView: View {
     @StateObject private var foodViewModel = FoodViewModel(service: FoodService())
     @State private var isShowingWebView: Bool = false
     @Binding var isFoodModalPresented: Bool
-//    @StateObject private var selectedFood: Food
+    
+    @EnvironmentObject var selectedFood: SelectedFood
     
     var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
     
@@ -25,6 +26,8 @@ struct FoodView: View {
                         ForEach(data, id: \.id) { item in
                             FoodItem(title: item.title, details: item.details, image: item.image) {
                                 print(item.title)
+                                self.selectedFood.food = item
+                                isFoodModalPresented = false
                             }
                         }
                     }.padding(EdgeInsets(top: 50, leading: 0, bottom: 0, trailing: 0))
@@ -72,17 +75,17 @@ struct FoodView: View {
             if case let .failed(error) = detail {
                 Text(error.localizedDescription)
             }
-        }
+        }.environmentObject(selectedFood)
         
     }
 }
 
 
 
-#if DEBUG
-struct FoodView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
-#endif
+//#if DEBUG
+//struct FoodView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//    }
+//}
+//#endif
