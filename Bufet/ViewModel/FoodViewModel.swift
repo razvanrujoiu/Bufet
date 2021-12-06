@@ -9,7 +9,7 @@ import Foundation
 
 @MainActor
 class FoodViewModel: ObservableObject {
-    
+
     enum State {
         case not_available
         case loading
@@ -25,16 +25,28 @@ class FoodViewModel: ObservableObject {
         self.service = service
     }
     
-    func getFoodList() async {
+    func getFoodList(sorted sortingState: SortingState) async {
         self.state = .loading
         self.hasError = false
         do {
-            let foodList = try await service.fetchFoodList()
-            self.state = .success(data: foodList)
+            switch sortingState {
+            case .none:
+                let foodList = try await service.fetchFoodList()
+                self.state = .success(data: foodList)
+            case .ascending:
+                let foodList = try await service.fetchFoodList().sorted(by: { $0.title.lowercased() < $1.title.lowercased()})
+                self.state = .success(data: foodList)
+            case .descending:
+                let foodList = try await service.fetchFoodList().sorted(by: { $0.title.lowercased() > $1.title.lowercased()})
+                self.state = .success(data: foodList)
+            }
+           
         } catch {
             self.state = .failed(error: error)
             self.hasError = true
         }
     }
+    
+    
     
 }

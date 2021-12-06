@@ -7,13 +7,14 @@
 
 import SwiftUI
 
+
 struct FoodView: View {
     
+    @Binding var isFoodModalPresented: Bool
     @StateObject private var foodViewModel = FoodViewModel(service: FoodService())
     @State private var isShowingWebView: Bool = false
-    @Binding var isFoodModalPresented: Bool
-    
     @EnvironmentObject var selectedFood: SelectedFood
+    @State private var sortingState: SortingState = .descending
     
     var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
     
@@ -53,14 +54,23 @@ struct FoodView: View {
                             .frame(width: 20, height: 20)
                     }),
                     trailing: Button(action: {
-                        //  TODO impelent sorting
+                        switch sortingState {
+                        case .none:
+                            sortingState = .ascending
+                        case .ascending:
+                            sortingState = .descending
+                        case .descending:
+                            sortingState = .none
+                        }
                     }, label: {
-                        Image("003-sort-down")
-                            .resizable()
-                            .renderingMode(.template)
-                            .foregroundColor(.white)
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 25, height: 25)
+                        switch sortingState {
+                        case .none:
+                            sortIcon(.white)
+                        case .ascending:
+                            sortIcon(.black)
+                        case .descending:
+                            sortIcon(.red)
+                        }
                     })
                 )
             case .loading:
@@ -70,11 +80,11 @@ struct FoodView: View {
             }
             
         }.task {
-            await foodViewModel.getFoodList()
+            await foodViewModel.getFoodList(sorted: sortingState)
         }.alert("Error", isPresented: $foodViewModel.hasError, presenting: foodViewModel.state) { detail in
             Button("Retry") {
                 Task {
-                    await foodViewModel.getFoodList()
+                    await foodViewModel.getFoodList(sorted: .none)
                 }
             }
         } message: { detail in
@@ -84,6 +94,16 @@ struct FoodView: View {
         }.environmentObject(selectedFood)
         
     }
+    
+    private func sortIcon(_ color: Color) -> some View {
+        Image("003-sort-down")
+            .resizable()
+            .renderingMode(.template)
+            .foregroundColor(color)
+            .aspectRatio(contentMode: .fit)
+            .frame(width: 25, height: 25)
+    }
+   
 }
 
 

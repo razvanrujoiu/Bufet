@@ -26,8 +26,8 @@
 		E36ABB15275D07CE00D490EF /* FoodItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36ABB14275D07CE00D490EF /* FoodItem.swift */; };
 		E36ABB17275D3C9400D490EF /* SelectedFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36ABB16275D3C9400D490EF /* SelectedFood.swift */; };
 		E36ABB19275E8B0A00D490EF /* FoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36ABB18275E8B0900D490EF /* FoodModel.swift */; };
-		E36ABB1C275E942100D490EF /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36ABB1B275E942000D490EF /* UIImage+Extensions.swift */; };
 		E36ABB1E275E97AE00D490EF /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36ABB1D275E97AE00D490EF /* Color+Extensions.swift */; };
+		E36ABB21275EAD4800D490EF /* SortingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36ABB20275EAD4800D490EF /* SortingState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,8 +51,8 @@
 		E36ABB14275D07CE00D490EF /* FoodItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItem.swift; sourceTree = "<group>"; };
 		E36ABB16275D3C9400D490EF /* SelectedFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedFood.swift; sourceTree = "<group>"; };
 		E36ABB18275E8B0900D490EF /* FoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodModel.swift; sourceTree = "<group>"; };
-		E36ABB1B275E942000D490EF /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		E36ABB1D275E97AE00D490EF /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
+		E36ABB20275EAD4800D490EF /* SortingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +85,7 @@
 		E36ABAE3275B6F5B00D490EF /* Bufet */ = {
 			isa = PBXGroup;
 			children = (
+				E36ABB1F275EAD3700D490EF /* Enums */,
 				E36ABB02275B956600D490EF /* AsyncImage */,
 				E36ABAF4275B704100D490EF /* Model */,
 				E36ABAFD275B7CD300D490EF /* View */,
@@ -160,7 +161,6 @@
 			isa = PBXGroup;
 			children = (
 				E36ABB0F275CDA3000D490EF /* MailComposeViewController.swift */,
-				E36ABB1B275E942000D490EF /* UIImage+Extensions.swift */,
 				E36ABB1D275E97AE00D490EF /* Color+Extensions.swift */,
 			);
 			path = Util;
@@ -172,6 +172,14 @@
 				E36ABB14275D07CE00D490EF /* FoodItem.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		E36ABB1F275EAD3700D490EF /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				E36ABB20275EAD4800D490EF /* SortingState.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,6 +255,7 @@
 				E36ABB15275D07CE00D490EF /* FoodItem.swift in Sources */,
 				E36ABB08275B95E700D490EF /* ImageCache.swift in Sources */,
 				E36ABAE7275B6F5B00D490EF /* HomeView.swift in Sources */,
+				E36ABB21275EAD4800D490EF /* SortingState.swift in Sources */,
 				E36ABAF6275B719900D490EF /* Food.swift in Sources */,
 				E36ABAFF275B7CEC00D490EF /* FoodView.swift in Sources */,
 				E36ABAFC275B797D00D490EF /* FoodViewModel.swift in Sources */,
@@ -259,7 +268,6 @@
 				E36ABAE5275B6F5B00D490EF /* AppDelegate.swift in Sources */,
 				E36ABB19275E8B0A00D490EF /* FoodModel.swift in Sources */,
 				E36ABAE9275B6F5B00D490EF /* Experience.rcproject in Sources */,
-				E36ABB1C275E942100D490EF /* UIImage+Extensions.swift in Sources */,
 				E36ABB1E275E97AE00D490EF /* Color+Extensions.swift in Sources */,
 				E36ABAF9275B778000D490EF /* FoodService.swift in Sources */,
 				E36ABB0A275B967A00D490EF /* ImageLoader.swift in Sources */,

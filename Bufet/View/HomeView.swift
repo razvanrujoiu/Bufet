@@ -30,7 +30,7 @@ struct HomeView : View {
                             isFoodModalPresented = true
                         } label: {
                             ZStack {
-                                RoundedRectangle(cornerRadius: 25)
+                                RoundedRectangle(cornerRadius: 22)
                                     .foregroundColor(.white)
                                 Image("001-hamburger")
                                     .resizable()
@@ -40,7 +40,7 @@ struct HomeView : View {
                                     .frame(width: 25, height: 25, alignment: .center)
                                     
                             }
-                            .frame(width: 50, height: 50, alignment: .center)
+                            .frame(width: 45, height: 45, alignment: .center)
                             .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 10))
                             
                         }

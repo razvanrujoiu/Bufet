@@ -19,6 +19,7 @@ fileprivate struct RawServerFoodResponse: Decodable {
 }
 
 struct Food: Codable, Identifiable {
+   
     let id: Int
     let title: String
     let image: String
@@ -38,4 +39,5 @@ struct Food: Codable, Identifiable {
         image = rawResponse.image.url
         details = rawResponse.details_url
     }
+
 }
