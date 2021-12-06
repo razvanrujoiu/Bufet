@@ -32,7 +32,7 @@ struct FoodView: View {
                         }
                     }.padding(EdgeInsets(top: 50, leading: 0, bottom: 0, trailing: 0))
                 }
-                .background(Image(uiImage: UIImage(named: "background")!))
+                .background(Image("background"))
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .principal) {
@@ -45,16 +45,22 @@ struct FoodView: View {
                     leading:  Button(action: {
                         isFoodModalPresented = false
                     }, label: {
-                        Image(systemName: "xmark")
-                            .foregroundColor(Color.white)
-                            .font(Font.headline.weight(.bold))
+                        Image("002-close")
+                            .resizable()
+                            .renderingMode(.template)
+                            .foregroundColor(.white)
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 20, height: 20)
                     }),
                     trailing: Button(action: {
                         //  TODO impelent sorting
                     }, label: {
-                        Image(systemName: "arrow.up.arrow.down")
-                            .foregroundColor(Color.white)
-                            .font(Font.headline.weight(.bold))
+                        Image("003-sort-down")
+                            .resizable()
+                            .renderingMode(.template)
+                            .foregroundColor(.white)
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 25, height: 25)
                     })
                 )
             case .loading:

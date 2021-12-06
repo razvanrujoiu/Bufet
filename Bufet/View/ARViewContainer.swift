@@ -9,11 +9,16 @@ import SwiftUI
 import RealityKit
 import ARKit
 
+
 struct ARViewContainer: UIViewRepresentable {
     
     @EnvironmentObject var selectedFood: SelectedFood
 //    @EnvironmentObject var capturedImage: CapturedImage
-    @Binding var capturedImage: UIImage
+    @Binding var capturedImage: CapturedImage
+    
+    func makeCoordinator() -> ARViewCoordinator {
+        ARViewCoordinator(self, capturedImage: $capturedImage)
+    }
   
     func makeUIView(context: Context) -> ARView {
         let arView = ARView(frame: .zero)
@@ -27,6 +32,7 @@ struct ARViewContainer: UIViewRepresentable {
         arView.session.run(config)
         return arView
     }
+    
     
     func updateUIView(_ uiView: ARView, context: Context) {
   
@@ -44,19 +50,34 @@ struct ARViewContainer: UIViewRepresentable {
                 anchor.addChild(entity)
                 uiView.scene.addAnchor(anchor)
                 
-                if let capturedFrame = uiView.session.currentFrame {
-                    let ciimg = CIImage(cvPixelBuffer: capturedFrame.capturedImage)
-                    if let cgImage = convertCIImageToCGImage(inputImage: ciimg) {
-//                        self.capturedImage = UIImage(cgImage: cgImage)
-                    }
-                }
             } catch {
                 print(error.localizedDescription)
             }
         }
-        
-        
     }
+    
+    
+    
+}
+
+class ARViewCoordinator: NSObject, ARSessionDelegate {
+    var arVC: ARViewContainer
+    @Binding var capturedImage: CapturedImage
+    
+    init(_ arViewContainer: ARViewContainer, capturedImage: Binding<CapturedImage>) {
+        self.arVC = arViewContainer
+        _capturedImage = capturedImage
+    }
+    
+    func session(_ session: ARSession, didUpdate frame: ARFrame) {
+        if let capturedFrame = session.currentFrame {
+            let ciimg = CIImage(cvPixelBuffer: capturedFrame.capturedImage)
+            if let cgImage = convertCIImageToCGImage(inputImage: ciimg) {
+                capturedImage.image = UIImage(cgImage: cgImage)
+            }
+        }
+    }
+    
     
     func convertCIImageToCGImage(inputImage: CIImage) -> CGImage? {
         let context = CIContext(options: nil)
@@ -65,5 +86,4 @@ struct ARViewContainer: UIViewRepresentable {
         }
         return nil
     }
-    
 }

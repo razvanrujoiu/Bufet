@@ -24,9 +24,14 @@ struct FoodItem: View {
                     .background(RoundedRectangle(cornerRadius: 10).fill(Color.white))
                 HStack(alignment: .firstTextBaseline) {
                     Link(destination: URL(string: details.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!) {
-                        Image(systemName: "info.circle.fill")
-                            .foregroundColor(Color.black)
-                    }.padding(EdgeInsets(top: 0, leading: 3, bottom: 40, trailing: 0))
+                        Image("004-info-button")
+                            .resizable()
+                            .renderingMode(.template)
+                            .foregroundColor(.black)
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 12, height: 12)
+                            
+                    }.padding(EdgeInsets(top: 0, leading: 5, bottom: 40, trailing: 0))
                     Spacer()
                 }
             }

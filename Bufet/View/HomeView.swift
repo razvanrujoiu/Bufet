@@ -15,23 +15,34 @@ struct HomeView : View {
     @State private var isShowingMail: Bool = false
     @State private var isShowingAlert: Bool = false
     @StateObject var selectedFood: SelectedFood = SelectedFood()
-    @ObservedObject var capturedImage: CapturedImage = CapturedImage()
+    @State var capturedImage = CapturedImage()
+//    @EnvironmentObject var capturedImage: CapturedImage
+    
     
     
     var body: some View {
             ZStack {
-                ARViewContainer(capturedImage: $capturedImage.image).edgesIgnoringSafeArea(.all)
+                ARViewContainer(capturedImage: $capturedImage).edgesIgnoringSafeArea(.all)
                 VStack(alignment: .trailing) {
                     HStack {
                         Spacer()
                         Button {
                             isFoodModalPresented = true
                         } label: {
-                            Image(uiImage: UIImage(named: "burger")!)
-                                .resizable()
-                                .aspectRatio(contentMode:.fit)
-                                .frame(width: 44, height: 44, alignment: .center)
-                                .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 10))
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 25)
+                                    .foregroundColor(.white)
+                                Image("001-hamburger")
+                                    .resizable()
+                                    .renderingMode(.template)
+                                    .foregroundColor(Color.init(hex: "#4ABFBB"))
+                                    .aspectRatio(contentMode:.fit)
+                                    .frame(width: 25, height: 25, alignment: .center)
+                                    
+                            }
+                            .frame(width: 50, height: 50, alignment: .center)
+                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 10))
+                            
                         }
                     }
                     Spacer()
@@ -47,9 +58,10 @@ struct HomeView : View {
                             //                    }
                             //                    let ciimg = CIImage(cvPixelBuffer: capturedImage)
                             //                    self.capturedImage = UIImage(ciImage: ciimg)
+                            
                             self.isShowingMail = true
                         } label: {
-                            Image(uiImage: UIImage(named: "telegram")!)
+                            Image("ShareScreen")
                                 .resizable()
                                 .aspectRatio(contentMode:.fit)
                                 .frame(width: 66, height: 66, alignment: .center)
@@ -64,7 +76,7 @@ struct HomeView : View {
                 FoodView(isFoodModalPresented: $isFoodModalPresented)
             }
             .sheet(isPresented: $isShowingMail) {
-                MailComposeViewController(toRecipients: [], mailBody: nil, imageAttachment: self.capturedImage.image) {
+                MailComposeViewController(toRecipients: [], mailBody: nil, imageAttachment: nil) {
                     self.isShowingMail = false
                 }
         }
