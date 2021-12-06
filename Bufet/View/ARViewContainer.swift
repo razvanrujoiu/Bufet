@@ -38,6 +38,7 @@ struct ARViewContainer: UIViewRepresentable {
                 let texture = try TextureResource.load(contentsOf: fileURL)
                 var material = SimpleMaterial()
                 material.baseColor = MaterialColorParameter.texture(texture)
+                material.tintColor = UIColor.white.withAlphaComponent(0.99)
                 let entity = ModelEntity(mesh: .generatePlane(width: 0.1, height: 0.1), materials: [material])
                 let anchor = AnchorEntity(.plane(.any, classification: .any, minimumBounds: .zero))
                 anchor.addChild(entity)
@@ -46,7 +47,7 @@ struct ARViewContainer: UIViewRepresentable {
                 if let capturedFrame = uiView.session.currentFrame {
                     let ciimg = CIImage(cvPixelBuffer: capturedFrame.capturedImage)
                     if let cgImage = convertCIImageToCGImage(inputImage: ciimg) {
-                        self.capturedImage = UIImage(cgImage: cgImage)
+//                        self.capturedImage = UIImage(cgImage: cgImage)
                     }
                 }
             } catch {
