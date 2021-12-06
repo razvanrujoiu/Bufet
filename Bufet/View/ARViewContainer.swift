@@ -12,12 +12,11 @@ import ARKit
 struct ARViewContainer: UIViewRepresentable {
     
     @EnvironmentObject var selectedFood: SelectedFood
-    let arView = ARView(frame: .infinite)
-    
+  
     func makeUIView(context: Context) -> ARView {
-        
+        let arView = ARView(frame: .zero)
         let config = ARWorldTrackingConfiguration()
-        config.planeDetection = [.horizontal, .vertical]
+        config.planeDetection = [.vertical, .horizontal]
         config.environmentTexturing = .automatic
         
         if ARWorldTrackingConfiguration.supportsSceneReconstruction(.mesh) {
@@ -42,7 +41,7 @@ struct ARViewContainer: UIViewRepresentable {
                 let entity = ModelEntity(mesh: .generatePlane(width: 0.1, height: 0.1), materials: [material])
                 let anchor = AnchorEntity(.plane(.any, classification: .any, minimumBounds: .zero))
                 anchor.addChild(entity)
-                arView.scene.addAnchor(anchor)
+                uiView.scene.addAnchor(anchor)
             } catch {
                 print(error.localizedDescription)
             }
