@@ -12,6 +12,8 @@ import ARKit
 struct ARViewContainer: UIViewRepresentable {
     
     @EnvironmentObject var selectedFood: SelectedFood
+//    @EnvironmentObject var capturedImage: CapturedImage
+    @Binding var capturedImage: UIImage
   
     func makeUIView(context: Context) -> ARView {
         let arView = ARView(frame: .zero)
@@ -24,17 +26,15 @@ struct ARViewContainer: UIViewRepresentable {
         }
         arView.session.run(config)
         return arView
-        
     }
     
     func updateUIView(_ uiView: ARView, context: Context) {
-        
-        let fileURL = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+  
         if (!selectedFood.food.image.isEmpty) {
             let data = try! Data(contentsOf: URL(string: self.selectedFood.food.image)!)
+            let fileURL = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
             try! data.write(to: fileURL)
             do {
-                // Create a TextureResource by loading the contents of the file URL.
                 let texture = try TextureResource.load(contentsOf: fileURL)
                 var material = SimpleMaterial()
                 material.baseColor = MaterialColorParameter.texture(texture)
@@ -42,12 +42,27 @@ struct ARViewContainer: UIViewRepresentable {
                 let anchor = AnchorEntity(.plane(.any, classification: .any, minimumBounds: .zero))
                 anchor.addChild(entity)
                 uiView.scene.addAnchor(anchor)
+                
+                if let capturedFrame = uiView.session.currentFrame {
+                    let ciimg = CIImage(cvPixelBuffer: capturedFrame.capturedImage)
+                    if let cgImage = convertCIImageToCGImage(inputImage: ciimg) {
+                        self.capturedImage = UIImage(cgImage: cgImage)
+                    }
+                }
             } catch {
                 print(error.localizedDescription)
             }
         }
         
         
+    }
+    
+    func convertCIImageToCGImage(inputImage: CIImage) -> CGImage? {
+        let context = CIContext(options: nil)
+        if let cgImage = context.createCGImage(inputImage, from: inputImage.extent) {
+            return cgImage
+        }
+        return nil
     }
     
 }

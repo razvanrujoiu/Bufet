@@ -10,6 +10,8 @@ import SwiftUI
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    // TODO check if phone supports AR
 
     var window: UIWindow?
     var orientationMask: UIInterfaceOrientationMask = .portrait

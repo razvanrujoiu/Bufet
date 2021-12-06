@@ -14,14 +14,13 @@ struct HomeView : View {
     @State var isFoodModalPresented: Bool = false
     @State private var isShowingMail: Bool = false
     @State private var isShowingAlert: Bool = false
-    @State private var capturedImage: UIImage = UIImage()
-    
     @StateObject var selectedFood: SelectedFood = SelectedFood()
+    @ObservedObject var capturedImage: CapturedImage = CapturedImage()
+    
     
     var body: some View {
-//        NavigationView {
             ZStack {
-                ARViewContainer().edgesIgnoringSafeArea(.all)
+                ARViewContainer(capturedImage: $capturedImage.image).edgesIgnoringSafeArea(.all)
                 VStack(alignment: .trailing) {
                     HStack {
                         Spacer()
@@ -55,9 +54,6 @@ struct HomeView : View {
                                 .aspectRatio(contentMode:.fit)
                                 .frame(width: 66, height: 66, alignment: .center)
                         }
-                        //                .alert("Current frame is null", isPresented: $isShowingAlert) {
-                        //                    Button("OK", role: .cancel) {}
-                        //                }
                     }
                 }
                 
@@ -68,11 +64,11 @@ struct HomeView : View {
                 FoodView(isFoodModalPresented: $isFoodModalPresented)
             }
             .sheet(isPresented: $isShowingMail) {
-                MailComposeViewController(toRecipients: [], mailBody: nil, imageAttachment: self.capturedImage) {
+                MailComposeViewController(toRecipients: [], mailBody: nil, imageAttachment: self.capturedImage.image) {
                     self.isShowingMail = false
                 }
-//            }
-        }.environmentObject(selectedFood)
+        }
+        .environmentObject(selectedFood)
     }
 }
 

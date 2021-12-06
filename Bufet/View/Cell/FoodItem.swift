@@ -21,7 +21,7 @@ struct FoodItem: View {
                     .foregroundColor(Color.black)
                     .padding(EdgeInsets(top: 0, leading: 0, bottom: -20, trailing: 0))
                     .frame(width: 170, height: 65, alignment: .center)
-                    .background(RoundedRectangle(cornerRadius: 10))
+                    .background(RoundedRectangle(cornerRadius: 10).fill(Color.white))
                 HStack(alignment: .firstTextBaseline) {
                     Link(destination: URL(string: details.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!) {
                         Image(systemName: "info.circle.fill")
