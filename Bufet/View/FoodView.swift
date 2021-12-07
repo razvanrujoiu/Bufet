@@ -12,19 +12,19 @@ struct FoodView: View {
     
     @Binding var isFoodModalPresented: Bool
     @StateObject private var foodViewModel = FoodViewModel(service: FoodService())
-    @State private var isShowingWebView: Bool = false
     @EnvironmentObject var selectedFood: SelectedFood
-    @State private var sortingState: SortingState = .descending
+    @State private var isShowingWebView: Bool = false
+    @State private var sortingState: SortingState = .none
     
     var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
     
     var body: some View {
         NavigationView {
             switch foodViewModel.state {
-            case .success(let data):
+            case .success:
                 ScrollView(showsIndicators: false) {
                     LazyVGrid(columns: columns) {
-                        ForEach(data, id: \.id) { item in
+                        ForEach(foodViewModel.foodList, id: \.id) { item in
                             FoodItem(title: item.title, details: item.details, image: item.image) {
                                 print(item.title)
                                 self.selectedFood.food = item
@@ -57,10 +57,13 @@ struct FoodView: View {
                         switch sortingState {
                         case .none:
                             sortingState = .ascending
+                            foodViewModel.foodList.sort(by: { $0.title.lowercased() < $1.title.lowercased() })
                         case .ascending:
                             sortingState = .descending
+                            foodViewModel.foodList.sort(by: { $0.title.lowercased() > $1.title.lowercased() })
                         case .descending:
                             sortingState = .none
+                            foodViewModel.foodList.sort(by: { $0.id < $1.id })
                         }
                     }, label: {
                         switch sortingState {

@@ -13,10 +13,10 @@ class FoodViewModel: ObservableObject {
     enum State {
         case not_available
         case loading
-        case success(data: [Food])
+        case success
         case failed(error: Error)
     }
-    
+    @Published var foodList: [Food] = []
     @Published private(set) var state: State = .not_available
     @Published var hasError: Bool = false
     private let service: FoodService
@@ -29,18 +29,8 @@ class FoodViewModel: ObservableObject {
         self.state = .loading
         self.hasError = false
         do {
-            switch sortingState {
-            case .none:
-                let foodList = try await service.fetchFoodList()
-                self.state = .success(data: foodList)
-            case .ascending:
-                let foodList = try await service.fetchFoodList().sorted(by: { $0.title.lowercased() < $1.title.lowercased()})
-                self.state = .success(data: foodList)
-            case .descending:
-                let foodList = try await service.fetchFoodList().sorted(by: { $0.title.lowercased() > $1.title.lowercased()})
-                self.state = .success(data: foodList)
-            }
-           
+            self.foodList = try await service.fetchFoodList()
+            self.state = .success
         } catch {
             self.state = .failed(error: error)
             self.hasError = true
