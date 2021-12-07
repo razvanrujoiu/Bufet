@@ -5,7 +5,7 @@
 //  Created by Razvan Rujoiu on 05.12.2021.
 //
 import SwiftUI
- 
+import UIKit
 import RealityKit
 import ARKit
 
@@ -14,9 +14,10 @@ struct ARViewContainer: UIViewRepresentable {
     
     @EnvironmentObject var selectedFood: SelectedFood
     @EnvironmentObject var arSession: ARSessionObservable
+    @EnvironmentObject var capturedFrame: CapturedFrameObservable
     
-    func makeCoordinator() -> ARViewCoordinator {
-        ARViewCoordinator(self)
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
     }
   
     func makeUIView(context: Context) -> ARView {
@@ -28,6 +29,7 @@ struct ARViewContainer: UIViewRepresentable {
         if ARWorldTrackingConfiguration.supportsSceneReconstruction(.mesh) {
             config.sceneReconstruction = .mesh
         }
+        arView.session.delegate = context.coordinator
         arView.session.run(config)
         arSession.session = arView.session
         return arView
@@ -36,6 +38,7 @@ struct ARViewContainer: UIViewRepresentable {
     
     func updateUIView(_ uiView: ARView, context: Context) {
   
+        
         if (!selectedFood.food.image.isEmpty) {
             let data = try! Data(contentsOf: URL(string: self.selectedFood.food.image)!)
             let fileURL = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
@@ -48,22 +51,48 @@ struct ARViewContainer: UIViewRepresentable {
                 let entity = ModelEntity(mesh: .generatePlane(width: 0.1, height: 0.1), materials: [material])
                 let anchor = AnchorEntity(.plane(.any, classification: .any, minimumBounds: .zero))
                 anchor.addChild(entity)
+               
                 uiView.scene.addAnchor(anchor)
             } catch {
                 print(error.localizedDescription)
             }
         }
     }
+    
+    class Coordinator: NSObject, ARSessionDelegate, ARSCNViewDelegate {
+        @EnvironmentObject var capturedFrame: CapturedFrameObservable
+        var arVC: ARViewContainer
+        
+        init(_ arViewContainer: ARViewContainer) {
+            self.arVC = arViewContainer
+        }
+        
+        
+        func session(_ session: ARSession, didUpdate frame: ARFrame) {
+//            let ciimg = CIImage(cvPixelBuffer: frame.capturedImage)
+//            if let cgImage = convertCIImageToCGImage(inputImage: ciimg) {
+//                capturedFrame.frame = UIImage(cgImage: cgImage).rotate(radians: .pi / 2)
+//            }
+        }
+        
+        func convertCIImageToCGImage(inputImage: CIImage) -> CGImage? {
+            let context = CIContext(options: nil)
+            if let cgImage = context.createCGImage(inputImage, from: inputImage.extent) {
+                return cgImage
+            }
+            return nil
+        }
+        
+        func sessionWasInterrupted(_ session: ARSession) {
+            
+        }
+        
+        func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
+            
+        }
+       
+        
+    }
+
 }
 
-class ARViewCoordinator: NSObject, ARSessionDelegate {
-    var arVC: ARViewContainer
-    
-    init(_ arViewContainer: ARViewContainer) {
-        self.arVC = arViewContainer
-    }
-    
-    func session(_ session: ARSession, didUpdate frame: ARFrame) {
-        print("🚀------------------------Session updated")
-    }
-}

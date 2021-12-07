@@ -38,6 +38,7 @@ struct FoodView: View {
                 .toolbar {
                     ToolbarItem(placement: .principal) {
                         Text("Bufet")
+                            .foregroundColor(.white)
                             .font(.largeTitle.bold())
                             .accessibilityAddTraits(.isHeader)
                     }

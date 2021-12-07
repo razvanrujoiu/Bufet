@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E31907D9275DE5310089D837 /* ARSessionObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31907D8275DE5310089D837 /* ARSessionObservable.swift */; };
 		E31907DB275F4BC70089D837 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31907DA275F4BC70089D837 /* UIImage+Extensions.swift */; };
+		E31907DD275F74570089D837 /* CapturedFrameObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31907DC275F74570089D837 /* CapturedFrameObservable.swift */; };
 		E36ABAE5275B6F5B00D490EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36ABAE4275B6F5B00D490EF /* AppDelegate.swift */; };
 		E36ABAE7275B6F5B00D490EF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36ABAE6275B6F5B00D490EF /* HomeView.swift */; };
 		E36ABAE9275B6F5B00D490EF /* Experience.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = E36ABAE8275B6F5B00D490EF /* Experience.rcproject */; };
@@ -34,6 +35,7 @@
 /* Begin PBXFileReference section */
 		E31907D8275DE5310089D837 /* ARSessionObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSessionObservable.swift; sourceTree = "<group>"; };
 		E31907DA275F4BC70089D837 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		E31907DC275F74570089D837 /* CapturedFrameObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapturedFrameObservable.swift; sourceTree = "<group>"; };
 		E36ABAE1275B6F5B00D490EF /* Bufet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bufet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E36ABAE4275B6F5B00D490EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E36ABAE6275B6F5B00D490EF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				E36ABB16275D3C9400D490EF /* SelectedFood.swift */,
 				E31907D8275DE5310089D837 /* ARSessionObservable.swift */,
 				E36ABB18275E8B0900D490EF /* FoodModel.swift */,
+				E31907DC275F74570089D837 /* CapturedFrameObservable.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 				E36ABB21275EAD4800D490EF /* SortingState.swift in Sources */,
 				E36ABAF6275B719900D490EF /* Food.swift in Sources */,
 				E36ABAFF275B7CEC00D490EF /* FoodView.swift in Sources */,
+				E31907DD275F74570089D837 /* CapturedFrameObservable.swift in Sources */,
 				E36ABAFC275B797D00D490EF /* FoodViewModel.swift in Sources */,
 				E31907DB275F4BC70089D837 /* UIImage+Extensions.swift in Sources */,
 				E36ABB06275B95D500D490EF /* EnvironmentValues+ImageCache.swift in Sources */,
@@ -408,7 +412,7 @@
 				DEVELOPMENT_TEAM = H55V68K4TY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Augumented Reality";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;
@@ -440,7 +444,7 @@
 				DEVELOPMENT_TEAM = H55V68K4TY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Augumented Reality";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;
