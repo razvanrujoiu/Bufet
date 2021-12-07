@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		E31907D9275DE5310089D837 /* ARSessionObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31907D8275DE5310089D837 /* ARSessionObservable.swift */; };
 		E31907DB275F4BC70089D837 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31907DA275F4BC70089D837 /* UIImage+Extensions.swift */; };
-		E31907DD275F74570089D837 /* CapturedFrameObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31907DC275F74570089D837 /* CapturedFrameObservable.swift */; };
 		E36ABAE5275B6F5B00D490EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36ABAE4275B6F5B00D490EF /* AppDelegate.swift */; };
 		E36ABAE7275B6F5B00D490EF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36ABAE6275B6F5B00D490EF /* HomeView.swift */; };
 		E36ABAE9275B6F5B00D490EF /* Experience.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = E36ABAE8275B6F5B00D490EF /* Experience.rcproject */; };
@@ -27,15 +26,17 @@
 		E36ABB12275CF35300D490EF /* ARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36ABB11275CF35300D490EF /* ARViewContainer.swift */; };
 		E36ABB15275D07CE00D490EF /* FoodItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36ABB14275D07CE00D490EF /* FoodItem.swift */; };
 		E36ABB17275D3C9400D490EF /* SelectedFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36ABB16275D3C9400D490EF /* SelectedFood.swift */; };
-		E36ABB19275E8B0A00D490EF /* FoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36ABB18275E8B0900D490EF /* FoodModel.swift */; };
 		E36ABB1E275E97AE00D490EF /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36ABB1D275E97AE00D490EF /* Color+Extensions.swift */; };
 		E36ABB21275EAD4800D490EF /* SortingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36ABB20275EAD4800D490EF /* SortingState.swift */; };
+		E36ABB27275FE26900D490EF /* ARQuickLookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36ABB26275FE26900D490EF /* ARQuickLookView.swift */; };
+		E36ABB2A275FEE0B00D490EF /* tv_retro.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E36ABB29275FEE0B00D490EF /* tv_retro.usdz */; };
+		E36ABB2C275FEF4E00D490EF /* cup_saucer_set.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E36ABB2B275FEF4E00D490EF /* cup_saucer_set.usdz */; };
+		E36ABB2E275FEF5400D490EF /* AirForce.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E36ABB2D275FEF5400D490EF /* AirForce.usdz */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E31907D8275DE5310089D837 /* ARSessionObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSessionObservable.swift; sourceTree = "<group>"; };
 		E31907DA275F4BC70089D837 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
-		E31907DC275F74570089D837 /* CapturedFrameObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapturedFrameObservable.swift; sourceTree = "<group>"; };
 		E36ABAE1275B6F5B00D490EF /* Bufet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bufet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E36ABAE4275B6F5B00D490EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E36ABAE6275B6F5B00D490EF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -54,9 +55,12 @@
 		E36ABB11275CF35300D490EF /* ARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewContainer.swift; sourceTree = "<group>"; };
 		E36ABB14275D07CE00D490EF /* FoodItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItem.swift; sourceTree = "<group>"; };
 		E36ABB16275D3C9400D490EF /* SelectedFood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedFood.swift; sourceTree = "<group>"; };
-		E36ABB18275E8B0900D490EF /* FoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodModel.swift; sourceTree = "<group>"; };
 		E36ABB1D275E97AE00D490EF /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		E36ABB20275EAD4800D490EF /* SortingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingState.swift; sourceTree = "<group>"; };
+		E36ABB26275FE26900D490EF /* ARQuickLookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARQuickLookView.swift; sourceTree = "<group>"; };
+		E36ABB29275FEE0B00D490EF /* tv_retro.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = tv_retro.usdz; sourceTree = "<group>"; };
+		E36ABB2B275FEF4E00D490EF /* cup_saucer_set.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = cup_saucer_set.usdz; sourceTree = "<group>"; };
+		E36ABB2D275FEF5400D490EF /* AirForce.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = AirForce.usdz; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +93,7 @@
 		E36ABAE3275B6F5B00D490EF /* Bufet */ = {
 			isa = PBXGroup;
 			children = (
+				E36ABB28275FEDE800D490EF /* ARModels */,
 				E36ABB1F275EAD3700D490EF /* Enums */,
 				E36ABB02275B956600D490EF /* AsyncImage */,
 				E36ABAF4275B704100D490EF /* Model */,
@@ -118,8 +123,6 @@
 				E36ABAF5275B719900D490EF /* Food.swift */,
 				E36ABB16275D3C9400D490EF /* SelectedFood.swift */,
 				E31907D8275DE5310089D837 /* ARSessionObservable.swift */,
-				E36ABB18275E8B0900D490EF /* FoodModel.swift */,
-				E31907DC275F74570089D837 /* CapturedFrameObservable.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 				E36ABAE6275B6F5B00D490EF /* HomeView.swift */,
 				E36ABAFE275B7CEC00D490EF /* FoodView.swift */,
 				E36ABB11275CF35300D490EF /* ARViewContainer.swift */,
+				E36ABB26275FE26900D490EF /* ARQuickLookView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -186,6 +190,16 @@
 				E36ABB20275EAD4800D490EF /* SortingState.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		E36ABB28275FEDE800D490EF /* ARModels */ = {
+			isa = PBXGroup;
+			children = (
+				E36ABB2D275FEF5400D490EF /* AirForce.usdz */,
+				E36ABB2B275FEF4E00D490EF /* cup_saucer_set.usdz */,
+				E36ABB29275FEE0B00D490EF /* tv_retro.usdz */,
+			);
+			path = ARModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,6 +260,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E36ABB2C275FEF4E00D490EF /* cup_saucer_set.usdz in Resources */,
+				E36ABB2E275FEF5400D490EF /* AirForce.usdz in Resources */,
+				E36ABB2A275FEE0B00D490EF /* tv_retro.usdz in Resources */,
 				E36ABAEE275B6F5D00D490EF /* Preview Assets.xcassets in Resources */,
 				E36ABAEB275B6F5D00D490EF /* Assets.xcassets in Resources */,
 			);
@@ -262,9 +279,9 @@
 				E36ABB08275B95E700D490EF /* ImageCache.swift in Sources */,
 				E36ABAE7275B6F5B00D490EF /* HomeView.swift in Sources */,
 				E36ABB21275EAD4800D490EF /* SortingState.swift in Sources */,
+				E36ABB27275FE26900D490EF /* ARQuickLookView.swift in Sources */,
 				E36ABAF6275B719900D490EF /* Food.swift in Sources */,
 				E36ABAFF275B7CEC00D490EF /* FoodView.swift in Sources */,
-				E31907DD275F74570089D837 /* CapturedFrameObservable.swift in Sources */,
 				E36ABAFC275B797D00D490EF /* FoodViewModel.swift in Sources */,
 				E31907DB275F4BC70089D837 /* UIImage+Extensions.swift in Sources */,
 				E36ABB06275B95D500D490EF /* EnvironmentValues+ImageCache.swift in Sources */,
@@ -274,7 +291,6 @@
 				E36ABB10275CDA3100D490EF /* MailComposeViewController.swift in Sources */,
 				E36ABB04275B95A600D490EF /* AsyncImage.swift in Sources */,
 				E36ABAE5275B6F5B00D490EF /* AppDelegate.swift in Sources */,
-				E36ABB19275E8B0A00D490EF /* FoodModel.swift in Sources */,
 				E36ABAE9275B6F5B00D490EF /* Experience.rcproject in Sources */,
 				E36ABB1E275E97AE00D490EF /* Color+Extensions.swift in Sources */,
 				E36ABAF9275B778000D490EF /* FoodService.swift in Sources */,
@@ -413,6 +429,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Augumented Reality";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Use gallery";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;
@@ -445,6 +462,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Augumented Reality";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Use gallery";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;

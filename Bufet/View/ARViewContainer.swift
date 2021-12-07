@@ -14,7 +14,6 @@ struct ARViewContainer: UIViewRepresentable {
     
     @EnvironmentObject var selectedFood: SelectedFood
     @EnvironmentObject var arSession: ARSessionObservable
-    @EnvironmentObject var capturedFrame: CapturedFrameObservable
     
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
@@ -38,7 +37,6 @@ struct ARViewContainer: UIViewRepresentable {
     
     func updateUIView(_ uiView: ARView, context: Context) {
   
-        
         if (!selectedFood.food.image.isEmpty) {
             let data = try! Data(contentsOf: URL(string: self.selectedFood.food.image)!)
             let fileURL = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
@@ -60,38 +58,17 @@ struct ARViewContainer: UIViewRepresentable {
     }
     
     class Coordinator: NSObject, ARSessionDelegate, ARSCNViewDelegate {
-        @EnvironmentObject var capturedFrame: CapturedFrameObservable
         var arVC: ARViewContainer
         
         init(_ arViewContainer: ARViewContainer) {
             self.arVC = arViewContainer
         }
         
-        
         func session(_ session: ARSession, didUpdate frame: ARFrame) {
-//            let ciimg = CIImage(cvPixelBuffer: frame.capturedImage)
-//            if let cgImage = convertCIImageToCGImage(inputImage: ciimg) {
-//                capturedFrame.frame = UIImage(cgImage: cgImage).rotate(radians: .pi / 2)
-//            }
-        }
-        
-        func convertCIImageToCGImage(inputImage: CIImage) -> CGImage? {
-            let context = CIContext(options: nil)
-            if let cgImage = context.createCGImage(inputImage, from: inputImage.extent) {
-                return cgImage
-            }
-            return nil
-        }
-        
-        func sessionWasInterrupted(_ session: ARSession) {
-            
         }
         
         func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
-            
         }
-       
-        
     }
 
 }
