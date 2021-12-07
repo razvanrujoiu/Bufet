@@ -6,7 +6,8 @@
 //
 
 import SwiftUI
+import ARKit
 
-class CapturedImage: ObservableObject {
-    @Published var image = UIImage()
+class ARSessionObservable: ObservableObject {
+    @Published var session = ARSession()
 }

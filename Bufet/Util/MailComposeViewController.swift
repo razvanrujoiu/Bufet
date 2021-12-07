@@ -31,7 +31,7 @@ struct MailComposeViewController: UIViewControllerRepresentable {
             mail.setMessageBody(body, isHTML: true)
         }
         if let image = imageAttachment {
-            if let imageData = image.jpegData(compressionQuality: 1){
+            if let imageData = image.pngData() {
                 mail.addAttachmentData(imageData, mimeType: "image/png", fileName: "image.png")
             }
         }

@@ -15,14 +15,13 @@ struct HomeView : View {
     @State private var isShowingMail: Bool = false
     @State private var isShowingAlert: Bool = false
     @StateObject var selectedFood: SelectedFood = SelectedFood()
-    @State var capturedImage = CapturedImage()
-//    @EnvironmentObject var capturedImage: CapturedImage
-    
+    @StateObject var arSession: ARSessionObservable = ARSessionObservable()
+    @State private var capturedImage: UIImage = UIImage()
     
     
     var body: some View {
             ZStack {
-                ARViewContainer(capturedImage: $capturedImage).edgesIgnoringSafeArea(.all)
+                ARViewContainer().edgesIgnoringSafeArea(.all)
                 VStack(alignment: .trailing) {
                     HStack {
                         Spacer()
@@ -52,14 +51,16 @@ struct HomeView : View {
                     VStack(alignment: .center) {
                         Spacer()
                         Button {
-                            //                    guard let capturedImage = ARViewContainer().arView.session.currentFrame?.capturedImage else {
-                            ////                        self.isShowingAlert = true
-                            //                        return
-                            //                    }
-                            //                    let ciimg = CIImage(cvPixelBuffer: capturedImage)
-                            //                    self.capturedImage = UIImage(ciImage: ciimg)
-                            
-                            self.isShowingMail = true
+                          
+                            if let capturedFrame = arSession.session.currentFrame {
+                                let ciimg = CIImage(cvPixelBuffer: capturedFrame.capturedImage)
+                                if let cgImage = convertCIImageToCGImage(inputImage: ciimg) {
+                                    capturedImage = UIImage(cgImage: cgImage).rotate(radians: .pi / 2)
+                                    
+                                    self.isShowingMail = true
+                                }
+                            }
+                           
                         } label: {
                             Image("ShareScreen")
                                 .resizable()
@@ -76,11 +77,21 @@ struct HomeView : View {
                 FoodView(isFoodModalPresented: $isFoodModalPresented)
             }
             .sheet(isPresented: $isShowingMail) {
-                MailComposeViewController(toRecipients: [], mailBody: nil, imageAttachment: nil) {
+                MailComposeViewController(toRecipients: [], mailBody: nil, imageAttachment: capturedImage) {
                     self.isShowingMail = false
                 }
         }
         .environmentObject(selectedFood)
+        .environmentObject(arSession)
+    }
+    
+    
+    func convertCIImageToCGImage(inputImage: CIImage) -> CGImage? {
+        let context = CIContext(options: nil)
+        if let cgImage = context.createCGImage(inputImage, from: inputImage.extent) {
+            return cgImage
+        }
+        return nil
     }
 }
 

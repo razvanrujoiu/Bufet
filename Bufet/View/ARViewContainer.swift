@@ -13,11 +13,10 @@ import ARKit
 struct ARViewContainer: UIViewRepresentable {
     
     @EnvironmentObject var selectedFood: SelectedFood
-//    @EnvironmentObject var capturedImage: CapturedImage
-    @Binding var capturedImage: CapturedImage
+    @EnvironmentObject var arSession: ARSessionObservable
     
     func makeCoordinator() -> ARViewCoordinator {
-        ARViewCoordinator(self, capturedImage: $capturedImage)
+        ARViewCoordinator(self)
     }
   
     func makeUIView(context: Context) -> ARView {
@@ -30,6 +29,7 @@ struct ARViewContainer: UIViewRepresentable {
             config.sceneReconstruction = .mesh
         }
         arView.session.run(config)
+        arSession.session = arView.session
         return arView
     }
     
@@ -49,41 +49,21 @@ struct ARViewContainer: UIViewRepresentable {
                 let anchor = AnchorEntity(.plane(.any, classification: .any, minimumBounds: .zero))
                 anchor.addChild(entity)
                 uiView.scene.addAnchor(anchor)
-                
             } catch {
                 print(error.localizedDescription)
             }
         }
     }
-    
-    
-    
 }
 
 class ARViewCoordinator: NSObject, ARSessionDelegate {
     var arVC: ARViewContainer
-    @Binding var capturedImage: CapturedImage
     
-    init(_ arViewContainer: ARViewContainer, capturedImage: Binding<CapturedImage>) {
+    init(_ arViewContainer: ARViewContainer) {
         self.arVC = arViewContainer
-        _capturedImage = capturedImage
     }
     
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
-        if let capturedFrame = session.currentFrame {
-            let ciimg = CIImage(cvPixelBuffer: capturedFrame.capturedImage)
-            if let cgImage = convertCIImageToCGImage(inputImage: ciimg) {
-                capturedImage.image = UIImage(cgImage: cgImage)
-            }
-        }
-    }
-    
-    
-    func convertCIImageToCGImage(inputImage: CIImage) -> CGImage? {
-        let context = CIContext(options: nil)
-        if let cgImage = context.createCGImage(inputImage, from: inputImage.extent) {
-            return cgImage
-        }
-        return nil
+        print("🚀------------------------Session updated")
     }
 }
