@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E31907DB275F4BC70089D837 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31907DA275F4BC70089D837 /* UIImage+Extensions.swift */; };
 		E31908032760E2100089D837 /* CapturedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31908022760E20F0089D837 /* CapturedImage.swift */; };
+		E31E81D02760FE6400415A5A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E31E81CF2760FE6400415A5A /* Launch Screen.storyboard */; };
 		E36ABAE5275B6F5B00D490EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36ABAE4275B6F5B00D490EF /* AppDelegate.swift */; };
 		E36ABAE7275B6F5B00D490EF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36ABAE6275B6F5B00D490EF /* HomeView.swift */; };
 		E36ABAE9275B6F5B00D490EF /* Experience.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = E36ABAE8275B6F5B00D490EF /* Experience.rcproject */; };
@@ -33,6 +34,8 @@
 /* Begin PBXFileReference section */
 		E31907DA275F4BC70089D837 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		E31908022760E20F0089D837 /* CapturedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapturedImage.swift; sourceTree = "<group>"; };
+		E31E81CE2760F98400415A5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E31E81CF2760FE6400415A5A /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		E36ABAE1275B6F5B00D490EF /* Bufet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bufet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E36ABAE4275B6F5B00D490EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E36ABAE6275B6F5B00D490EF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -85,6 +88,7 @@
 		E36ABAE3275B6F5B00D490EF /* Bufet */ = {
 			isa = PBXGroup;
 			children = (
+				E31E81CE2760F98400415A5A /* Info.plist */,
 				E36ABB1F275EAD3700D490EF /* Enums */,
 				E36ABB02275B956600D490EF /* AsyncImage */,
 				E36ABAF4275B704100D490EF /* Model */,
@@ -93,6 +97,7 @@
 				E36ABAF7275B76A300D490EF /* Service */,
 				E36ABB0E275CDA1D00D490EF /* Util */,
 				E36ABAE4275B6F5B00D490EF /* AppDelegate.swift */,
+				E31E81CF2760FE6400415A5A /* Launch Screen.storyboard */,
 				E36ABAE8275B6F5B00D490EF /* Experience.rcproject */,
 				E36ABAEA275B6F5D00D490EF /* Assets.xcassets */,
 				E36ABAEC275B6F5D00D490EF /* Preview Content */,
@@ -240,6 +245,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E31E81D02760FE6400415A5A /* Launch Screen.storyboard in Resources */,
 				E36ABAEE275B6F5D00D490EF /* Preview Assets.xcassets in Resources */,
 				E36ABAEB275B6F5D00D490EF /* Assets.xcassets in Resources */,
 			);
@@ -404,10 +410,12 @@
 				DEVELOPMENT_TEAM = H55V68K4TY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Bufet/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Augumented Reality";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Use gallery";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -437,10 +445,12 @@
 				DEVELOPMENT_TEAM = H55V68K4TY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Bufet/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Augumented Reality";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Use gallery";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
