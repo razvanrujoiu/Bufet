@@ -9,14 +9,14 @@ import SwiftUI
 import RealityKit
 import MessageUI
 
+
 struct HomeView : View {
     
     @State var isFoodModalPresented: Bool = false
     @State private var isShowingMail: Bool = false
     @State private var isShowingAlert: Bool = false
-    @StateObject var selectedFood: SelectedFood = SelectedFood()
     @State private var capturedImage: UIImage = UIImage()
-    
+    @StateObject var selectedFood: SelectedFood = SelectedFood()
     
     var body: some View {
             ZStack {
