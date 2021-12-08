@@ -15,12 +15,12 @@ struct HomeView : View {
     @State var isFoodModalPresented: Bool = false
     @State private var isShowingMail: Bool = false
     @State private var isShowingAlert: Bool = false
-    @State private var capturedImage: UIImage = UIImage()
+//    @State private var capturedImage: UIImage = UIImage()
     @StateObject var selectedFood: SelectedFood = SelectedFood()
+    @StateObject var capturedImage: CapturedImage = CapturedImage()
     
     var body: some View {
             ZStack {
-                
                 ARViewContainer().edgesIgnoringSafeArea(.all)
                 VStack(alignment: .trailing) {
                     HStack {
@@ -41,7 +41,6 @@ struct HomeView : View {
                             }
                             .frame(width: 45, height: 45, alignment: .center)
                             .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 10))
-                            
                         }
                     }
                     Spacer()
@@ -52,11 +51,11 @@ struct HomeView : View {
                         Spacer()
                         Button {
                             arView.snapshot(saveToHDR: false) { image in
-                                let image = UIImage(data: (image?.pngData())!)
-                                capturedImage = image!
-                                self.isShowingMail = true
+                                if let imageData = image!.pngData() {
+                                    capturedImage.image = UIImage(data: imageData)!
+                                    self.isShowingMail = true
+                                }
                             }
-
                         } label: {
                             Image("ShareScreen")
                                 .resizable()
@@ -68,16 +67,21 @@ struct HomeView : View {
                 
             }
             .sheet(isPresented: $isFoodModalPresented) {
-                
+                arView.snapshot(saveToHDR: false) { image in
+                    if let imageData = image!.pngData() {
+                        capturedImage.image = UIImage(data: imageData)!
+                    }
+                }
             } content: {
                 FoodView(isFoodModalPresented: $isFoodModalPresented)
             }
             .sheet(isPresented: $isShowingMail) {
                 MailComposeViewController(toRecipients: [], mailBody: nil, imageAttachment: capturedImage) {
                     self.isShowingMail = false
-                }
+            }
         }
         .environmentObject(selectedFood)
+        .environmentObject(capturedImage)
     }
     
 }
