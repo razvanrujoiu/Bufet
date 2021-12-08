@@ -22,8 +22,8 @@ struct HomeView : View {
     var body: some View {
             ZStack {
                 
-                ARQuickLookView().edgesIgnoringSafeArea(.all)
-//                ARViewContainer().edgesIgnoringSafeArea(.all)
+//                ARQuickLookView().edgesIgnoringSafeArea(.all)
+                ARViewContainer().edgesIgnoringSafeArea(.all)
                 VStack(alignment: .trailing) {
                     HStack {
                         Spacer()
@@ -53,13 +53,12 @@ struct HomeView : View {
                     VStack(alignment: .center) {
                         Spacer()
                         Button {
-                            if let capturedFrame = arSession.session.currentFrame {
-                                let ciimg = CIImage(cvPixelBuffer: capturedFrame.capturedImage)
-                                if let cgImage = convertCIImageToCGImage(inputImage: ciimg) {
-                                    capturedImage = UIImage(cgImage: cgImage).rotate(radians: .pi / 2)
-                                    self.isShowingMail = true
-                                }
+                            arView.snapshot(saveToHDR: false) { image in
+                                let image = UIImage(data: (image?.pngData())!)
+                                capturedImage = image!
+                                self.isShowingMail = true
                             }
+
                         } label: {
                             Image("ShareScreen")
                                 .resizable()

@@ -9,6 +9,7 @@ import UIKit
 import RealityKit
 import ARKit
 
+var arView: ARView!
 
 struct ARViewContainer: UIViewRepresentable {
     
@@ -20,7 +21,7 @@ struct ARViewContainer: UIViewRepresentable {
     }
   
     func makeUIView(context: Context) -> ARView {
-        let arView = ARView(frame: .zero)
+        arView = ARView(frame: .zero)
         let config = ARWorldTrackingConfiguration()
         config.planeDetection = [.vertical, .horizontal]
         config.environmentTexturing = .automatic
@@ -62,14 +63,19 @@ struct ARViewContainer: UIViewRepresentable {
         
         init(_ arViewContainer: ARViewContainer) {
             self.arVC = arViewContainer
+
         }
         
         func session(_ session: ARSession, didUpdate frame: ARFrame) {
         }
+        
+        
         
         func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
         }
     }
 
 }
+
+
 
