@@ -43,14 +43,13 @@ struct ARViewContainer: UIViewRepresentable {
                 try! data.write(to: fileURL)
                 DispatchQueue.main.async {
                     do {
-                        let texture = try! TextureResource.load(contentsOf: fileURL)
+                        let texture = try TextureResource.load(contentsOf: fileURL)
                         var material = SimpleMaterial()
                         material.baseColor = MaterialColorParameter.texture(texture)
                         material.tintColor = UIColor.white.withAlphaComponent(0.99)
                         let entity = ModelEntity(mesh: .generatePlane(width: 0.1, height: 0.1), materials: [material])
                         let anchor = AnchorEntity(.plane(.any, classification: .any, minimumBounds: .zero))
                         anchor.addChild(entity)
-                       
                         uiView.scene.addAnchor(anchor)
                     } catch {
                         print(error.localizedDescription)
