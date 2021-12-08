@@ -15,14 +15,12 @@ struct HomeView : View {
     @State private var isShowingMail: Bool = false
     @State private var isShowingAlert: Bool = false
     @StateObject var selectedFood: SelectedFood = SelectedFood()
-    @StateObject var arSession: ARSessionObservable = ARSessionObservable()
     @State private var capturedImage: UIImage = UIImage()
     
     
     var body: some View {
             ZStack {
                 
-//                ARQuickLookView().edgesIgnoringSafeArea(.all)
                 ARViewContainer().edgesIgnoringSafeArea(.all)
                 VStack(alignment: .trailing) {
                     HStack {
@@ -80,7 +78,6 @@ struct HomeView : View {
                 }
         }
         .environmentObject(selectedFood)
-        .environmentObject(arSession)
     }
     
     func convertCIImageToCGImage(inputImage: CIImage) -> CGImage? {

@@ -14,7 +14,6 @@ var arView: ARView!
 struct ARViewContainer: UIViewRepresentable {
     
     @EnvironmentObject var selectedFood: SelectedFood
-    @EnvironmentObject var arSession: ARSessionObservable
     
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
@@ -31,7 +30,6 @@ struct ARViewContainer: UIViewRepresentable {
         }
         arView.session.delegate = context.coordinator
         arView.session.run(config)
-        arSession.session = arView.session
         return arView
     }
     
@@ -68,7 +66,6 @@ struct ARViewContainer: UIViewRepresentable {
         
         func session(_ session: ARSession, didUpdate frame: ARFrame) {
         }
-        
         
         
         func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
