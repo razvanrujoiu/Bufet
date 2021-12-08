@@ -13,7 +13,7 @@ struct MailComposeViewController: UIViewControllerRepresentable {
     
     var toRecipients: [String]
     var mailBody: String?
-    var imageAttachment: UIImage?
+    @EnvironmentObject var capturedImage: CapturedImage
     
     var didFinish: ()->()
     
@@ -25,15 +25,14 @@ struct MailComposeViewController: UIViewControllerRepresentable {
         
         let mail = MFMailComposeViewController()
         mail.mailComposeDelegate = context.coordinator
-     
+        
         mail.setToRecipients(self.toRecipients)
         if let body = mailBody {
             mail.setMessageBody(body, isHTML: true)
         }
-        if let image = imageAttachment {
-            if let imageData = image.pngData() {
-                mail.addAttachmentData(imageData, mimeType: "image/png", fileName: "image.png")
-            }
+        
+        if let imageData = capturedImage.image.pngData() {
+            mail.addAttachmentData(imageData, mimeType: "image/png", fileName: "image.png")
         }
         return mail
     }

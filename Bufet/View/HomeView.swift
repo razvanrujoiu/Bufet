@@ -15,7 +15,6 @@ struct HomeView : View {
     @State var isFoodModalPresented: Bool = false
     @State private var isShowingMail: Bool = false
     @State private var isShowingAlert: Bool = false
-//    @State private var capturedImage: UIImage = UIImage()
     @StateObject var selectedFood: SelectedFood = SelectedFood()
     @StateObject var capturedImage: CapturedImage = CapturedImage()
     
@@ -52,7 +51,7 @@ struct HomeView : View {
                         Button {
                             arView.snapshot(saveToHDR: false) { image in
                                 if let imageData = image!.pngData() {
-                                    capturedImage.image = UIImage(data: imageData)!
+                                    self.capturedImage.image = UIImage(data: imageData)!
                                     self.isShowingMail = true
                                 }
                             }
@@ -66,17 +65,14 @@ struct HomeView : View {
                 }
                 
             }
+
             .sheet(isPresented: $isFoodModalPresented) {
-                arView.snapshot(saveToHDR: false) { image in
-                    if let imageData = image!.pngData() {
-                        capturedImage.image = UIImage(data: imageData)!
-                    }
-                }
+
             } content: {
                 FoodView(isFoodModalPresented: $isFoodModalPresented)
             }
             .sheet(isPresented: $isShowingMail) {
-                MailComposeViewController(toRecipients: [], mailBody: nil, imageAttachment: capturedImage) {
+                MailComposeViewController(toRecipients: [], mailBody: nil) {
                     self.isShowingMail = false
             }
         }
