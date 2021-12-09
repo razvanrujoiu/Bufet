@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E31907DB275F4BC70089D837 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31907DA275F4BC70089D837 /* UIImage+Extensions.swift */; };
 		E31908032760E2100089D837 /* CapturedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31908022760E20F0089D837 /* CapturedImage.swift */; };
+		E319080A27621C5C0089D837 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E319080927621C5B0089D837 /* WebView.swift */; };
 		E31E81D02760FE6400415A5A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E31E81CF2760FE6400415A5A /* Launch Screen.storyboard */; };
 		E36ABAE5275B6F5B00D490EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36ABAE4275B6F5B00D490EF /* AppDelegate.swift */; };
 		E36ABAE7275B6F5B00D490EF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36ABAE6275B6F5B00D490EF /* HomeView.swift */; };
@@ -34,6 +35,7 @@
 /* Begin PBXFileReference section */
 		E31907DA275F4BC70089D837 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		E31908022760E20F0089D837 /* CapturedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapturedImage.swift; sourceTree = "<group>"; };
+		E319080927621C5B0089D837 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		E31E81CE2760F98400415A5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E31E81CF2760FE6400415A5A /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		E36ABAE1275B6F5B00D490EF /* Bufet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bufet.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,6 +169,7 @@
 				E36ABB0F275CDA3000D490EF /* MailComposeViewController.swift */,
 				E36ABB1D275E97AE00D490EF /* Color+Extensions.swift */,
 				E31907DA275F4BC70089D837 /* UIImage+Extensions.swift */,
+				E319080927621C5B0089D837 /* WebView.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E36ABB15275D07CE00D490EF /* FoodItem.swift in Sources */,
+				E319080A27621C5C0089D837 /* WebView.swift in Sources */,
 				E36ABB08275B95E700D490EF /* ImageCache.swift in Sources */,
 				E36ABAE7275B6F5B00D490EF /* HomeView.swift in Sources */,
 				E31908032760E2100089D837 /* CapturedImage.swift in Sources */,
@@ -410,7 +414,6 @@
 				DEVELOPMENT_TEAM = H55V68K4TY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Bufet/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Augumented Reality";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Use gallery";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -445,7 +448,6 @@
 				DEVELOPMENT_TEAM = H55V68K4TY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Bufet/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Augumented Reality";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Use gallery";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

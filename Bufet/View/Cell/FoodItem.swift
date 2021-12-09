@@ -12,6 +12,7 @@ struct FoodItem: View {
     let details: String
     let image: String
     let action: () -> Void
+    @State private var showWebView = false
     
     var body: some View {
         ZStack {
@@ -23,15 +24,20 @@ struct FoodItem: View {
                     .frame(width: 170, height: 65, alignment: .center)
                     .background(RoundedRectangle(cornerRadius: 10).fill(Color.white))
                 HStack(alignment: .firstTextBaseline) {
-                    Link(destination: URL(string: details.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!) {
+                    Button {
+                        showWebView.toggle()
+                    } label: {
                         Image("004-info-button")
                             .resizable()
                             .renderingMode(.template)
                             .foregroundColor(.black)
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 12, height: 12)
-                            
-                    }.padding(EdgeInsets(top: 0, leading: 5, bottom: 40, trailing: 0))
+                    }
+                    .sheet(isPresented: $showWebView) {
+                        WebView(url: URL(string: details.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!)
+                    }
+                    .padding(EdgeInsets(top: 0, leading: 5, bottom: 40, trailing: 0))
                     Spacer()
                 }
             }
