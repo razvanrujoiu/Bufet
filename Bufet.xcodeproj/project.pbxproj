@@ -10,6 +10,8 @@
 		E31907DB275F4BC70089D837 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31907DA275F4BC70089D837 /* UIImage+Extensions.swift */; };
 		E31908032760E2100089D837 /* CapturedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31908022760E20F0089D837 /* CapturedImage.swift */; };
 		E319080A27621C5C0089D837 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E319080927621C5B0089D837 /* WebView.swift */; };
+		E319080D276235A00089D837 /* SendButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E319080C276235A00089D837 /* SendButton.swift */; };
+		E319080F276235CA0089D837 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E319080E276235CA0089D837 /* MenuButton.swift */; };
 		E31E81D02760FE6400415A5A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E31E81CF2760FE6400415A5A /* Launch Screen.storyboard */; };
 		E36ABAE5275B6F5B00D490EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36ABAE4275B6F5B00D490EF /* AppDelegate.swift */; };
 		E36ABAE7275B6F5B00D490EF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36ABAE6275B6F5B00D490EF /* HomeView.swift */; };
@@ -36,6 +38,8 @@
 		E31907DA275F4BC70089D837 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		E31908022760E20F0089D837 /* CapturedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapturedImage.swift; sourceTree = "<group>"; };
 		E319080927621C5B0089D837 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		E319080C276235A00089D837 /* SendButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendButton.swift; sourceTree = "<group>"; };
+		E319080E276235CA0089D837 /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		E31E81CE2760F98400415A5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E31E81CF2760FE6400415A5A /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		E36ABAE1275B6F5B00D490EF /* Bufet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bufet.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +75,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E319080B2762358B0089D837 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				E36ABAE6275B6F5B00D490EF /* HomeView.swift */,
+				E319080C276235A00089D837 /* SendButton.swift */,
+				E319080E276235CA0089D837 /* MenuButton.swift */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
 		E36ABAD8275B6F5B00D490EF = {
 			isa = PBXGroup;
 			children = (
@@ -144,8 +158,8 @@
 		E36ABAFD275B7CD300D490EF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E319080B2762358B0089D837 /* HomeView */,
 				E36ABB13275D07BC00D490EF /* Cell */,
-				E36ABAE6275B6F5B00D490EF /* HomeView.swift */,
 				E36ABAFE275B7CEC00D490EF /* FoodView.swift */,
 				E36ABB11275CF35300D490EF /* ARViewContainer.swift */,
 			);
@@ -261,11 +275,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E319080D276235A00089D837 /* SendButton.swift in Sources */,
 				E36ABB15275D07CE00D490EF /* FoodItem.swift in Sources */,
 				E319080A27621C5C0089D837 /* WebView.swift in Sources */,
 				E36ABB08275B95E700D490EF /* ImageCache.swift in Sources */,
 				E36ABAE7275B6F5B00D490EF /* HomeView.swift in Sources */,
 				E31908032760E2100089D837 /* CapturedImage.swift in Sources */,
+				E319080F276235CA0089D837 /* MenuButton.swift in Sources */,
 				E36ABB21275EAD4800D490EF /* SortingState.swift in Sources */,
 				E36ABAF6275B719900D490EF /* Food.swift in Sources */,
 				E36ABAFF275B7CEC00D490EF /* FoodView.swift in Sources */,
