@@ -41,7 +41,7 @@ struct FoodItem: View {
                     Spacer()
                 }
             }
-            AsyncImage(url: URL(string: image)!, placeholder: {Color.gray}, image: { image in
+            AsyncImage(url: URL(string: image)!, image: { image in
                 Image(uiImage: image)
                     .resizable()
             }).aspectRatio(contentMode: .fit)
