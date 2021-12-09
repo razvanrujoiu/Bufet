@@ -57,6 +57,10 @@ struct ARViewContainer: UIViewRepresentable {
                         }
                         lastAnchor = anchor
                         uiView.scene.addAnchor(anchor)
+                        
+                        entity.generateCollisionShapes(recursive: true)
+                        arView.installGestures([.translation, .rotation, .scale], for: entity)
+                        
                     } catch {
                         print(error.localizedDescription)
                     }
