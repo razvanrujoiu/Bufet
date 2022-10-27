@@ -10,10 +10,12 @@ import RealityKit
 import ARKit
 
 var arView: ARView!
+var lastAnchor: AnchorEntity?
 
 struct ARViewContainer: UIViewRepresentable {
     
     @EnvironmentObject var selectedFood: SelectedFood
+                
     
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
@@ -35,7 +37,7 @@ struct ARViewContainer: UIViewRepresentable {
     
     
     func updateUIView(_ uiView: ARView, context: Context) {
-  
+        
         if (!selectedFood.food.image.isEmpty) {
             DispatchQueue.global(qos: .userInitiated).async {
                 let data = try! Data(contentsOf: URL(string: self.selectedFood.food.image)!)
@@ -50,7 +52,15 @@ struct ARViewContainer: UIViewRepresentable {
                         let entity = ModelEntity(mesh: .generatePlane(width: 0.1, height: 0.1), materials: [material])
                         let anchor = AnchorEntity(.plane(.any, classification: .any, minimumBounds: .zero))
                         anchor.addChild(entity)
+                        if let lastAnchor = lastAnchor {
+                            uiView.scene.removeAnchor(lastAnchor)
+                        }
+                        lastAnchor = anchor
                         uiView.scene.addAnchor(anchor)
+                        
+                        entity.generateCollisionShapes(recursive: true)
+                        arView.installGestures([.translation, .rotation, .scale], for: entity)
+                        
                     } catch {
                         print(error.localizedDescription)
                     }
@@ -61,20 +71,11 @@ struct ARViewContainer: UIViewRepresentable {
     
     class Coordinator: NSObject, ARSessionDelegate, ARSCNViewDelegate {
         var arVC: ARViewContainer
-        
+
         init(_ arViewContainer: ARViewContainer) {
             self.arVC = arViewContainer
-
-        }
-        
-        func session(_ session: ARSession, didUpdate frame: ARFrame) {
-        }
-        
-        
-        func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
         }
     }
-
 }
 
 

@@ -109,13 +109,3 @@ struct FoodView: View {
     }
    
 }
-
-
-
-//#if DEBUG
-//struct FoodView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView()
-//    }
-//}
-//#endif
